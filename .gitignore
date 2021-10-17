@@ -1,0 +1,3 @@
+# Project exclude paths
+/distributed-security-order/target/
+/distributed-security-uaa/target/
