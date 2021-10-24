@@ -24,10 +24,6 @@ public class TokenConfig {
      */
     /**
      * //令牌存储策略-基于jwt令牌
-     *
-     *
-     *
-     *
      */
     private String SIGNING_KEY = "uaa123";
     @Bean

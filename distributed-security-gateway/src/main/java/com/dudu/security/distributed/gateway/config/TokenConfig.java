@@ -1,0 +1,34 @@
+package com.dudu.security.distributed.gateway.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.oauth2.provider.token.TokenStore;
+import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
+import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
+
+/**
+ * @Description:
+ * 资源服务器由于需要验证并解析令牌，往往可以通过在授权服务器暴露check_token的Endpoint来完成
+ * 而我们在授权服务器使用的是对称加密的jwt，因此知道密钥即可
+ * @author:zhaomeng
+ * @date:2021/10/17 12:01 下午
+ */
+@Configuration
+public class TokenConfig {
+
+    /**
+     * //令牌存储策略-基于jwt令牌
+     */
+    private String SIGNING_KEY = "uaa123";
+    @Bean
+    public TokenStore tokenStore() {
+        return new JwtTokenStore(accessTokenConverter());
+    }
+    @Bean
+    public JwtAccessTokenConverter accessTokenConverter() {
+        JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
+        converter.setSigningKey(SIGNING_KEY); //对称秘钥，资源服务器使用该秘钥来验证
+        return converter;
+    }
+}
+

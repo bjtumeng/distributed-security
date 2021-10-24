@@ -39,7 +39,7 @@ public class ResouceServerConfig extends ResourceServerConfigurerAdapter {
         http.authorizeRequests()
             .antMatchers("/**")
                 //与uaa系统匹配，否则不可访问
-            .access("#oauth2.hasScope('all')")
+            .access("#oauth2.hasScope('ROLE_API')")
             .and().csrf().disable()
             .sessionManagement()
             .sessionCreationPolicy(SessionCreationPolicy.STATELESS);

@@ -52,28 +52,31 @@ public class AuthorizationServer extends AuthorizationServerConfigurerAdapter {
      * @param clients
      * @throws Exception
      */
+//    public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+//    // 使用in‐memory存储
+//       clients.inMemory()
+//               // client_id：(必须的)用来标识客户的Id
+//              .withClient("c1")
+//                    //客户端密码  相当于校验客户端的id和密码
+//              .secret(new BCryptPasswordEncoder().encode("secret"))
+//                 //资源列表
+//              .resourceIds("res1")
+//                    //此客户端可以使用的授权类型，默认为空
+//                    //该client允许的授权类型 authorization_code,password,refresh_token,implicit,client_credentials
+//              .authorizedGrantTypes("authorization_code",
+//                          "password","client_credentials","implicit","refresh_token")
+//                      //允许的授权范围 .autoApprove(false)
+//              .scopes("all")
+//                      //false：跳转到授权页面  true：直接发令牌
+//              .autoApprove(false)
+//                    //加上验证回调地址
+//              .redirectUris("http://www.baidu.com");
+//   }
 
-
+   @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-    // 使用in‐memory存储
-       clients.inMemory()
-               // client_id：(必须的)用来标识客户的Id
-              .withClient("c1")
-                    //客户端密码  相当于校验客户端的id和密码
-              .secret(new BCryptPasswordEncoder().encode("secret"))
-                 //资源列表
-              .resourceIds("res1")
-                    //此客户端可以使用的授权类型，默认为空
-                    //该client允许的授权类型 authorization_code,password,refresh_token,implicit,client_credentials
-              .authorizedGrantTypes("authorization_code",
-                          "password","client_credentials","implicit","refresh_token")
-                      //允许的授权范围 .autoApprove(false)
-              .scopes("all")
-                      //false：跳转到授权页面  true：直接发令牌
-              .autoApprove(false)
-                    //加上验证回调地址
-              .redirectUris("http://www.baidu.com");
-   }
+        clients.withClientDetails(clientDetailsService);
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
