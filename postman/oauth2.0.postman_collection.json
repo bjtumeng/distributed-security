@@ -1,0 +1,335 @@
+{
+	"info": {
+		"_postman_id": "9b6d31e3-cc2c-4900-877a-7bc57bc758c2",
+		"name": "oauth2.0",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "springcloud",
+			"item": [
+				{
+					"name": "申请令牌",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "client_id",
+									"value": "c1",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "user",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "authorization_code",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "code",
+									"value": "miYpjJ",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "redirect_uri",
+									"value": "http://www.baidu.com",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text",
+									"disabled": true
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:53010/uaa/oauth/token",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "53010",
+							"path": [
+								"uaa",
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "校验令牌",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:53020/uaa/oauth/check_token?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzMSJdLCJ1c2VyX25hbWUiOiJ7XCJmdWxsbmFtZVwiOlwiMTIzXCIsXCJpZFwiOlwiMVwiLFwibW9iaWxlXCI6XCIxMjNcIixcInBhc3N3b3JkXCI6XCIxMjNcIixcInVzZXJuYW1lXCI6XCJ1c2VyXCJ9Iiwic2NvcGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiIsIlJPTEVfQVBJIl0sImV4cCI6MTYzNTA4Njk2NywiYXV0aG9yaXRpZXMiOlsicDEiLCJwMyJdLCJqdGkiOiI5NDliMzM1Yi1kM2MwLTQxNjktOTMwMC1iODViNjI3M2U1ZjAiLCJjbGllbnRfaWQiOiJjMSJ9.4jPDi04PFSHBNoooEy2CGFodty3i2UaRVvg_vCVtlok",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "53020",
+							"path": [
+								"uaa",
+								"oauth",
+								"check_token"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzMSJdLCJ1c2VyX25hbWUiOiJ7XCJmdWxsbmFtZVwiOlwiMTIzXCIsXCJpZFwiOlwiMVwiLFwibW9iaWxlXCI6XCIxMjNcIixcInBhc3N3b3JkXCI6XCIxMjNcIixcInVzZXJuYW1lXCI6XCJ1c2VyXCJ9Iiwic2NvcGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiIsIlJPTEVfQVBJIl0sImV4cCI6MTYzNTA4Njk2NywiYXV0aG9yaXRpZXMiOlsicDEiLCJwMyJdLCJqdGkiOiI5NDliMzM1Yi1kM2MwLTQxNjktOTMwMC1iODViNjI3M2U1ZjAiLCJjbGllbnRfaWQiOiJjMSJ9.4jPDi04PFSHBNoooEy2CGFodty3i2UaRVvg_vCVtlok"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "访问资源服务",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:53010/order/r1?Authorization=Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzMSJdLCJ1c2VyX25hbWUiOiJ7XCJmdWxsbmFtZVwiOlwiMTIzXCIsXCJpZFwiOlwiMVwiLFwibW9iaWxlXCI6XCIxMjNcIixcInBhc3N3b3JkXCI6XCIxMjNcIixcInVzZXJuYW1lXCI6XCJ1c2VyXCJ9Iiwic2NvcGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiIsIlJPTEVfQVBJIl0sImV4cCI6MTYzNTA4NzMyNCwiYXV0aG9yaXRpZXMiOlsicDEiLCJwMyJdLCJqdGkiOiIwNGZkZjUzMC0wZTZmLTRkMDUtODcwMC1iZGIwZjgwNjVmOWMiLCJjbGllbnRfaWQiOiJjMSJ9.qzy5SniHXQy5LRXlNpdpXG8dNtGwxwoHe7s2c5eQLU4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "53010",
+							"path": [
+								"order",
+								"r1"
+							],
+							"query": [
+								{
+									"key": "Authorization",
+									"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzMSJdLCJ1c2VyX25hbWUiOiJ7XCJmdWxsbmFtZVwiOlwiMTIzXCIsXCJpZFwiOlwiMVwiLFwibW9iaWxlXCI6XCIxMjNcIixcInBhc3N3b3JkXCI6XCIxMjNcIixcInVzZXJuYW1lXCI6XCJ1c2VyXCJ9Iiwic2NvcGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiIsIlJPTEVfQVBJIl0sImV4cCI6MTYzNTA4NzMyNCwiYXV0aG9yaXRpZXMiOlsicDEiLCJwMyJdLCJqdGkiOiIwNGZkZjUzMC0wZTZmLTRkMDUtODcwMC1iZGIwZjgwNjVmOWMiLCJjbGllbnRfaWQiOiJjMSJ9.qzy5SniHXQy5LRXlNpdpXG8dNtGwxwoHe7s2c5eQLU4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "申请令牌",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "c1",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "123",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "code",
+							"value": "miYpjJ",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://www.baidu.com",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:53020/uaa/oauth/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "53020",
+					"path": [
+						"uaa",
+						"oauth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "校验令牌",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "c1",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "secret",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "7s7Lps",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://www.baidu.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:53020/uaa/oauth/check_token?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzMSJdLCJ1c2VyX25hbWUiOiJ7XCJmdWxsbmFtZVwiOlwiMTIzXCIsXCJpZFwiOlwiMVwiLFwibW9iaWxlXCI6XCIxMjNcIixcInBhc3N3b3JkXCI6XCIxMjNcIixcInVzZXJuYW1lXCI6XCJ1c2VyXCJ9Iiwic2NvcGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiIsIlJPTEVfQVBJIl0sImV4cCI6MTYzNDQ4OTQwNywiYXV0aG9yaXRpZXMiOlsicDEiLCJwMyJdLCJqdGkiOiI4NmJjOTZiMy00ZDIwLTQ0MTItYjA3Yi1iM2EzNzc4ODEyYTYiLCJjbGllbnRfaWQiOiJjMSJ9.1r01TQMvqjOs9-A5L6QZfM4lqzD_JsnZO2ZPZArx9Bo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "53020",
+					"path": [
+						"uaa",
+						"oauth",
+						"check_token"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsicmVzMSJdLCJ1c2VyX25hbWUiOiJ7XCJmdWxsbmFtZVwiOlwiMTIzXCIsXCJpZFwiOlwiMVwiLFwibW9iaWxlXCI6XCIxMjNcIixcInBhc3N3b3JkXCI6XCIxMjNcIixcInVzZXJuYW1lXCI6XCJ1c2VyXCJ9Iiwic2NvcGUiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiIsIlJPTEVfQVBJIl0sImV4cCI6MTYzNDQ4OTQwNywiYXV0aG9yaXRpZXMiOlsicDEiLCJwMyJdLCJqdGkiOiI4NmJjOTZiMy00ZDIwLTQ0MTItYjA3Yi1iM2EzNzc4ODEyYTYiLCJjbGllbnRfaWQiOiJjMSJ9.1r01TQMvqjOs9-A5L6QZfM4lqzD_JsnZO2ZPZArx9Bo"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "访问资源服务",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI16IkpXVCJ9.eyJhdWQiOlsicmVzMSJdLCJ1c2VyX25hbWUiOiJ7XCJmdWxsbmFtZVwiOlwiMTIzXCIsXCJpZFwiOlwiMVwiLFwibW9iaWxlXCI6XCIxMjNcIixcInBhc3N3b3JkXCI6XCIxMjNcIixcInVzZXJuYW1lXCI6XCJ1c2VyXCJ9Iiwic2NvcGUiOlsiYWxsIl0sImV4cCI6MTYzNDQ4NDE0OCwiYXV0aG9yaXRpZXMiOlsicDEiLCJwMyJdLCJqdGkiOiI2NzFlOTYzMS0xMmVkLTQxMzQtYWNkMy04ZTgzYTJiYzFjMmEiLCJjbGllbnRfaWQiOiJjMSJ9.PVNxTmZx1ct2WLBZS7Ksr9-3Wxl97ap3FIHPIppGoJ0",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "c1",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "secret",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "7s7Lps",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://www.baidu.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:53021/order/r1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "53021",
+					"path": [
+						"order",
+						"r1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
