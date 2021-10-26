@@ -1,7 +1,0 @@
-/Users/admin/IdeaProjects/distributed-security/distributed-security-gateway/src/main/java/com/dudu/security/distributed/gateway/config/TokenConfig.java
-/Users/admin/IdeaProjects/distributed-security/distributed-security-gateway/src/main/java/com/dudu/security/distributed/gateway/config/ResouceServerConfig.java
-/Users/admin/IdeaProjects/distributed-security/distributed-security-gateway/src/main/java/com/dudu/security/distributed/gateway/filter/ZuulFilter.java
-/Users/admin/IdeaProjects/distributed-security/distributed-security-gateway/src/main/java/com/dudu/security/distributed/gateway/config/WebSecurityConfig.java
-/Users/admin/IdeaProjects/distributed-security/distributed-security-gateway/src/main/java/com/dudu/security/distributed/gateway/GatewayServer.java
-/Users/admin/IdeaProjects/distributed-security/distributed-security-gateway/src/main/java/com/dudu/security/distributed/gateway/common/EncryptUtil.java
-/Users/admin/IdeaProjects/distributed-security/distributed-security-gateway/src/main/java/com/dudu/security/distributed/gateway/filter/AuthFilter.java
